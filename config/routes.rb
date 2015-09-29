@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root 'projects#index'
+  get 'rewards/new'
 
+  get 'rewards/create'
+
+  get 'rewards/show'
+
+  root 'projects#index'
+  resources :rewards
   resources :projects
 end
