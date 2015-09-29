@@ -1,0 +1,18 @@
+<%= form_for(@project) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :funding_goal %>
+  <%= f.number_field :funding_goal %>
+
+  <%= f.label :started_at %>
+  <%= f.datetime_field :started_at %>
+
+  <%= f.label :ended_at %>
+  <%= f.datetime_field :ended_at %>
+
+  <%= f.submit %>
+<% end %>
