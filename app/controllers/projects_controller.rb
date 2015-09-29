@@ -41,6 +41,6 @@ class ProjectsController < ApplicationController
 
   private 
   def projects_params
-    params.require(:project).permit(:name, :description, :funding_goal, :started_at, :ended_at, rewards_attributes: [:description, :amount, :_destroy])
+    params.require(:project).permit(:name, :description, :funding_goal, :started_at, :ended_at, rewards_attributes: [:name, :description, :backer_limit, :_destroy])
   end
 end
