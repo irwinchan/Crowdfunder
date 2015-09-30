@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'rewards/new'
-
-  get 'rewards/create'
-
-  get 'rewards/show'
-
   root 'projects#index'
-  resources :rewards
-  resources :projects
+  resources :users, only: [:show, :new, :create]
+  resources :projects do
+    resources :rewards, only: [:show, :new, :create] do
+      resources :pledges, only: [:show, :new, :create]
+    end
+  end
 end

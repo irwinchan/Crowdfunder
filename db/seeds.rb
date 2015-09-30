@@ -16,11 +16,11 @@
 #  )
 # end
 
-30. times do
-  Reward.create!(
-     name: Faker::Commerce.product_name,
-     description: Faker::Lorem.sentence,
-     backer_limit: rand(10..200),
-     project_id: rand(1..10)
-   )
-end
+# 30. times do
+#   Reward.create!(
+#      name: Faker::Commerce.product_name,
+#      description: Faker::Lorem.sentence,
+#      backer_limit: rand(10..200),
+#      project_id: rand(1..10)
+#    )
+# end
