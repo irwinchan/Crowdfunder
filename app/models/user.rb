@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :pledges
+	
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes["password"] }

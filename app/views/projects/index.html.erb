@@ -5,4 +5,5 @@
   <li><%= project.funding_goal %></li>
   <li><%= project.started_at %></li>
   <li><%= project.ended_at %></li>
+  <%= render partial: 'rewards', locals: {project: project} %>
 <% end %>
