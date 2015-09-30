@@ -1,39 +1,41 @@
 <%= form_for(@project) do |f| %>
-  <div>
+  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
-  <div>>
+  <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
 
-  <div>
+  <div class="field">
     <%= f.label :funding_goal %>
     <%= f.number_field :funding_goal %>
   </div>
 
-  <div>
+  <div class="field">
     <%= f.label :started_at %>
     <%= f.datetime_field :started_at %>
   </div>
 
-  <div>
+  <div class="field">
     <%= f.label :ended_at %>
     <%= f.datetime_field :ended_at %>
   </div>
 
   <h4>Add rewards</h4>
 
-  <div id="rewards">
-    <%= f.fields_for :rewards do |reward_fields| %>
-      <%= render 'reward_fields', f: reward_fields %>
+
+<div id="rewards">
+  <%= f.fields_for :rewards do |reward| %>
+    <%= render 'rewards_fields', f: reward %>
     <% end %>
-      <div class="links">
-        <%= link_to_add_association 'add reward', f, :rewards %>
-      </div>
-  </div>
+</div>
+
+<div class='links'>
+  <%= link_to_add_association 'add reward', f, :rewards %>
+</div>
 
   <%= f.submit %>
 <% end %>

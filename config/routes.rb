@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get 'rewards/new'
+  get 'user_sessions/new'
 
-  get 'rewards/create'
+  get 'user_sessions/create'
 
-  get 'rewards/show'
+  get 'user_sessions/destroy'
 
   root 'projects#index'
+  
   resources :rewards
   resources :projects
+  resources :users
 end
