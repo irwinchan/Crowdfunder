@@ -1,8 +1,10 @@
 <h1>Projects</h1>
 <% @projects.each do |project| %>
-  <li><%= project.name %></li>
-  <li><%= project.description %></li>
-  <li><%= project.funding_goal %></li>
-  <li><%= project.started_at %></li>
-  <li><%= project.ended_at %></li>
+  <ul>
+    <li><%= link_to project.name, project_path(project) %></li>
+    <li><%= project.description %></li>
+    <li><%= project.funding_goal %></li>
+    <li><%= project.started_at %></li>
+    <li><%= project.ended_at %></li>
+  </ul>
 <% end %>

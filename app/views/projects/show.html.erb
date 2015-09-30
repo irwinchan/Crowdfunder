@@ -1,6 +1,10 @@
 <h2>Project <%= @project.name %></h2>
+<ul>
+  <li><%= @project.description %></li>
+  <li><%= @project.funding_goal %></li>
+  <li><%= @project.started_at %></li>
+  <li><%= @project.ended_at %></li>
+</ul>
 
-<li><%= @project.description %></li>
-<li><%= @project.funding_goal %></li>
-<li><%= @project.started_at %></li>
-<li><%= @project.ended_at %></li>
+<%= render partial: "rewards/rewards", locals: { rewards: @project.rewards} %>
+
