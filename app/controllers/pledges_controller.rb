@@ -9,9 +9,9 @@ class PledgesController < ApplicationController
 		@pledge = @reward.pledges.build(pledge_params)
 		@pledge.user = current_user
 		if @pledge.save
-			redirect_to project_reward_path(@reward.project_id, @reward)
+			redirect_to project_path(@reward.project_id)
 		else
-			render 'new'
+			render 'projects/show'
 		end
 		# @pledge = Pledge.new(pledges_params)
 		# if @pledge.save

@@ -10,6 +10,13 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @pledge = Pledge.new
+
+    @amount_raised = 0
+    @project.rewards.each do |reward|
+      #@amount_raised += reward.pledges.sum("amount")
+      @amount_raised += reward.backer_limit * reward.pledges.count
+    end
+
   end
 
   def create
