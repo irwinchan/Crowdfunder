@@ -1,0 +1,17 @@
+<% project.rewards.each do |reward| %>
+	Reward name: <%= reward.name %>,
+	Description: <%= reward.description %>,
+	Amount: <%= reward.backer_limit %>
+	<br />
+
+	<%= form_for([project, reward, @pledge]) do |f| %>
+	 	<div class="field">
+	 		<%= f.label :amount %>
+	 		<%= f.number_field :amount %>
+	 	</div>
+
+	 	<div class="action">
+	 		<%= f.submit %>
+	 	</div>
+	<% end %>
+<% end %>

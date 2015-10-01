@@ -3,18 +3,19 @@ class RewardsController < ApplicationController
     @reward = Reward.new
   end
 
-  def create
-    @reward = Reward.new(reward_params)
+  # def create
+  #   @reward = Reward.new(reward_params)
 
-    if @reward.save
-      redirect_to projects_path
-    else
-      render :new
-    end
-  end
+  #   if @reward.save
+  #     redirect_to projects_path
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def show
     @reward = Reward.find(params[:id])
+    @pledge = @reward.pledges.build
   end
 
   private
