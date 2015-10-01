@@ -4,6 +4,6 @@
 <li><%= @project.funding_goal %></li>
 <li><%= @project.started_at %></li>
 <li><%= @project.ended_at %></li>
-<li>amount: <%= @amount_raised %></li>
+<li>amount: <span id="amount"><%= @amount_raised %></span></li>
 
 <%= render partial: 'rewardWithPledges', locals: {project: @project} %>

@@ -4,7 +4,7 @@
 	Amount: <%= reward.backer_limit %>
 	<br />
 
-	<%= form_for([project, reward, @pledge]) do |f| %>
+	<%= form_for([project, reward, @pledge], remote: true, :class => 'pledge' ) do |f| %>
 	 	<div class="field">
 	 		<%= f.label :amount %>
 	 		<%= f.number_field :amount %>

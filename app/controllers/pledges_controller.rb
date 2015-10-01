@@ -6,19 +6,24 @@ class PledgesController < ApplicationController
 	end
 
 	def create
+		@project = Project.find(params[:project_id])
 		@pledge = @reward.pledges.build(pledge_params)
 		@pledge.user = current_user
-		if @pledge.save
-			redirect_to project_path(@reward.project_id)
-		else
-			render 'projects/show'
+
+		respond_to do |format|
+			if @pledge.save
+				@amount_raised = 0
+		    @project.rewards.each do |reward|
+		      #@amount_raised += reward.pledges.sum("amount")
+		      @amount_raised += reward.backer_limit * reward.pledges.count
+		    end
+				# redirect_to project_path(@reward.project_id)
+				format.js
+			else
+				format.html { render 'projects/show', alert: 'There was an error!' }
+			end
 		end
-		# @pledge = Pledge.new(pledges_params)
-		# if @pledge.save
-		# 	redirect_to root_path
-		# else
-		# 	render 'new'
-		# end
+
 	end
 
 	private
