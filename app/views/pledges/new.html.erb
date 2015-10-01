@@ -1,0 +1,11 @@
+<h1>Pledges#new</h1>
+<% if logged_in? %>
+  <%= form_for [@project, @reward, @pledge] do |f| %>
+    <div>you are pledging <%= @reward.backer_limit %></div>
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  <p>Login to pledge</p>
+<% end %>
+
+

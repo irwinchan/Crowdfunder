@@ -1,7 +1,10 @@
-<% rewards.each do |reward| %>
+<% project.rewards.each do |reward| %>
   <ul>
-    <li><strong>Name: <%= reward.name %></strong></li>
+    <li><strong>Name:
+    <%= reward.name %>
+    </strong></li>
     <li>Backer limit: <%= reward.backer_limit %></li>
     <li>Reward: <%= reward.description %></li>
+    <%= reward.id %>
   </ul>
 <% end %>
