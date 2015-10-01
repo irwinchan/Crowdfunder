@@ -1,5 +1,4 @@
 class PledgesController < ApplicationController
-	# before_action :load_project
 	before_action :load_reward
 
 	def new
@@ -8,7 +7,7 @@ class PledgesController < ApplicationController
 
 	def create
 		@pledge = @reward.pledges.build(pledge_params)
-		@pledge.user_id = current_user.id
+		@pledge.user = current_user
 		if @pledge.save
 			redirect_to project_reward_path(@reward.project_id, @reward)
 		else
@@ -31,7 +30,4 @@ class PledgesController < ApplicationController
 		@reward = Reward.find(params[:reward_id])
 	end
 
-	# def load_project
-	# 	@project = Project.find(params[:project_id])
-	# end
 end
