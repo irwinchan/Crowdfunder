@@ -1,4 +1,6 @@
 class RewardsController < ApplicationController
+  before_action :load_project
+  
   def new
     @reward = Reward.new
   end
@@ -15,6 +17,7 @@ class RewardsController < ApplicationController
 
   def show
     @reward = Reward.find(params[:id])
+    @pledge = @reward.pledges.build
   end
 
   private
@@ -22,5 +25,8 @@ class RewardsController < ApplicationController
     params.require(:reward).permit(:name, :description, :backer_limit)
   end
 
+  def load_project
+    @project = Project.find(params[:project_id])
+  end
 end
 

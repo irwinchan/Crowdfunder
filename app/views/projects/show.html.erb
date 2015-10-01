@@ -5,3 +5,4 @@
 <li><%= @project.started_at %></li>
 <li><%= @project.ended_at %></li>
 
+<%= render partial: 'rewardWithPledges', locals: {project: @project} %>
