@@ -16,13 +16,16 @@ class UsersController < ApplicationController
 
   def show
     @backed_projects = []
+    @total_backed = 0
     user = User.find(current_user)
 
     user.pledges.each do |pledge|
       @backed_projects << pledge.reward.project
+      @total_backed += pledge.reward.backer_limit
     end
-
     @backed_projects.uniq!
+
+
   end
 
   private
