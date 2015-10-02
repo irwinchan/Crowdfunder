@@ -1,5 +1,5 @@
 <h2>Project <%= @project.name %></h2>
-<% if @project.users.find_by(current_user) %>
+<% if @project.users.find_by(current_user.id) %>
   <div class="backed">You have backed the project!</div>
 <% else %>
   <div class="backed">You have not backed The project!</div>
