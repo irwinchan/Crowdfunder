@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
       @amount_raised += reward.backer_limit * reward.pledges.count
     end
 
+    @days_left = (@project.ended_at - @project.started_at)/(60*24*60)
   end
 
   def create
