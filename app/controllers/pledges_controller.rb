@@ -23,7 +23,6 @@ class PledgesController < ApplicationController
 				format.html { render 'projects/show', alert: 'There was an error!' }
 			end
 		end
-
 	end
 
 	private

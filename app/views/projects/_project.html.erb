@@ -1,0 +1,7 @@
+<li><%= project.name %></li>
+<li><%= project.description %></li>
+<li><%= project.funding_goal %></li>
+<li><%= project.started_at %></li>
+<li><%= project.ended_at %></li>
+<%= render partial: 'rewards', locals: {project: project} %>
+<%= link_to 'Go to this project', project_path(project) %>

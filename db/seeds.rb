@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-10.times do
+100.times do
   Project.create!(
     name: Faker::Commerce.product_name,
     description: Faker::Lorem.sentence,
@@ -17,7 +17,7 @@
   )
 end
 
-30. times do
+200. times do
   Reward.create!(
      name: Faker::Commerce.product_name,
      description: Faker::Lorem.sentence,

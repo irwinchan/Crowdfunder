@@ -1,15 +1,17 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.order(ended_at: :desc)
+    @projects = Project.order(ended_at: :desc).page(params[:page])
   end
 
   def new
     @project = Project.new
+    @categories = Category.all
   end
 
   def show
     @project = Project.find(params[:id])
     @pledge = Pledge.new
+    @categories = @project.categories
 
     @amount_raised = 0
     @project.rewards.each do |reward|
@@ -17,7 +19,8 @@ class ProjectsController < ApplicationController
       @amount_raised += reward.backer_limit * reward.pledges.count
     end
 
-    @days_left = (@project.ended_at - @project.started_at)/(60*24*60)
+    @days_left = (@project.ended_at - @project.started_at)/(60*60*24)
+
   end
 
   def create
@@ -50,6 +53,6 @@ class ProjectsController < ApplicationController
 
   private
   def projects_params
-    params.require(:project).permit(:name, :description, :funding_goal, :started_at, :ended_at, rewards_attributes: [:description, :name, :backer_limit, :_destroy])
+    params.require(:project).permit(:name, :description, :funding_goal, :started_at, :ended_at, rewards_attributes: [:description, :name, :backer_limit, :_destroy], :category_ids => [])
   end
 end

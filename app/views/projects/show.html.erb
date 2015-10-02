@@ -11,4 +11,11 @@
 <li><%= @project.ended_at %></li>
 <li>amount: <span id="amount"><%= @amount_raised %></span></li>
 <li>days left: <%= @days_left %></li>
+<div class="categories">
+  <% @categories.each do |category| %>
+    <li>category: <%= category.name %></li>
+  <% end %>
+</div>
+
+
 <%= render partial: 'rewardWithPledges', locals: {project: @project} %>

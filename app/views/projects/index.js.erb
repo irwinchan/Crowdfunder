@@ -1,0 +1,4 @@
+
+$('.projects').append('<%= j render(@projects) %>');
+
+$('.pagination').replaceWith('<%= j.paginate(@projects)');
