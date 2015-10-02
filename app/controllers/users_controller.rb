@@ -15,6 +15,14 @@ class UsersController < ApplicationController
   end
 
   def show
+    @backed_projects = []
+    user = User.find(current_user)
+
+    user.pledges.each do |pledge|
+      @backed_projects << pledge.reward.project
+    end
+
+    @backed_projects.uniq!
   end
 
   private

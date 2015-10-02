@@ -1,2 +1,6 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<ul>
+<% @backed_projects.each do |project| %>
+  <li><%=project.name%></li>
+<% end %>
+</ul>
